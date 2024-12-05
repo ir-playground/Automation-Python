@@ -69,11 +69,8 @@ jobs:
           INVISIRISK_PORTAL: https://app.stage.veribom.com/
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
     container:
-      image: node:18-alpine
+      image: python:3.5-alpine
       options: --cap-add=NET_ADMIN
-    strategy:
-      matrix:
-        node-version: [18.x]
     steps:
     - env: 
         SCAN_ID: ${{ needs.create_scan_in_IR_Portal.outputs.scan_id }}
@@ -85,7 +82,4 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v3
     - name: Run pip install
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: pip install -r requirements.txt
+      run: pip install -r requirements.txt
