@@ -1,4 +1,4 @@
-name: Build NPM Package
+name: Build PIP Package
 on:
   push:
     branches: [ DEV ]
