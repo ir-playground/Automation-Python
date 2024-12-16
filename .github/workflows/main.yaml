@@ -65,7 +65,7 @@ jobs:
         env:
           PSE_DEBUG_FLAG: --alsologtostderr
           POLICY_LOG: t
-          INVISIRISK_JWT_TOKEN: ${{secrets.VB_API_KEY_DEV}} 
+          INVISIRISK_JWT_TOKEN: 7aKEcWu9t_UbJfT5uinZ3Iak92-hMHdtRuykBRRlrGVICfJ_K004O7a9dIuqStn1XDL7Bu_Obq1qUdJdKM4dFw 
           INVISIRISK_PORTAL: https://app.dev.veribom.com
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
     container:
@@ -79,11 +79,6 @@ jobs:
       with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           SCAN_ID: ${{ needs.create_scan_in_IR_Portal.outputs.scan_id }}
-    - name: Simulate API key leak (mock API request)
-      run: |
-        # Simulate a "leak" by sending a request to a mock API
-        curl -sSL "https://mockbin.org/bin/your-generated-bin-id" > response.json
-        cat response.json
     - name: Checkout the code
       uses: actions/checkout@v3
     - name: Run pip install
