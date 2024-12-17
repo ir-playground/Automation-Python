@@ -3,7 +3,7 @@ name: Test Leaks with cURL
 on:
   push:
     branches:
-      - main
+      - DEV
   pull_request:
 
 jobs:
