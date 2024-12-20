@@ -32,15 +32,6 @@ safety_schemas==0.0.10
 typing-extensions>=4.7.1
 filelock~=3.16.1
 psutil~=6.1.0
-10cent10
-10cent11
-11cent
-123bla
-12cent
-13cent
-14cent
-15cent
-16cent
 aa-timezones
 aadhaar-py
 aamiles
