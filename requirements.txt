@@ -36,7 +36,6 @@ aa-timezones
 aadhaar-py
 aamiles
 aba-cli-scrapper
-abe
 abiflows
 abilian-devtools
 abracadabra
