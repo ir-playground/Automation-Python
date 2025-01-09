@@ -49,7 +49,6 @@ adversarial-robustness-toolbox
 adyen
 aegea
 aethos
-agentscope
 agixt
 agpt
 agraph-python
@@ -117,4 +116,3 @@ ambient-api
 amdsmi
 aml-ds-pipeline-contrib
 amqp
-
