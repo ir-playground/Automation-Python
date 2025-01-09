@@ -40,7 +40,6 @@ abiflows
 abilian-devtools
 abracadabra
 accesscontrol
-acqusition
 acryl-datahub
 actinia-core
 actinis-django-storages
