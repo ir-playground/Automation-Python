@@ -50,7 +50,6 @@ adyen
 aegea
 aethos
 agentscope
-agentuniverse
 agixt
 agpt
 agraph-python
