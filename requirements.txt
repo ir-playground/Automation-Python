@@ -49,8 +49,6 @@ adversarial-robustness-toolbox
 adyen
 aegea
 aethos
-afdko
-affinequant
 agentscope
 agentuniverse
 agixt
