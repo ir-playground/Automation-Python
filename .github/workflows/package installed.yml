@@ -1,0 +1,35 @@
+name: Python Dependency Installation and Display
+
+on:
+  push:
+    branches:
+      - STAGE
+  pull_request:
+    branches:
+      - STAGE
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # Set your preferred Python version here
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Display Installed Dependencies
+        run: |
+          echo "Installed dependencies and their transitive dependencies:"
+          pip list
+          echo "Full dependency tree (including transitive dependencies):"
+          pip install pipdeptree
+          pipdeptree
