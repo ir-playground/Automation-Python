@@ -1,4 +1,4 @@
-name: Build NPM Package
+name: Build NPM Package for PROD
 on:
   push:
     branches: [ PROD ]
