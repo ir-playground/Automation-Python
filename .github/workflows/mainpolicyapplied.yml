@@ -117,7 +117,7 @@ jobs:
           git add new3-file.txt
           git commit -m "Add a new file"
 
-    - name: Push changes to the PUSH branch using HTTPS
+    - name: Push changes to the STAGE branch using HTTPS
       run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git push origin STAGE
