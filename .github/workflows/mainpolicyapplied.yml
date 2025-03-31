@@ -127,7 +127,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure GITHUB_TOKEN has 'write' permissions
         
     - name: Run curl to check status code
-      run: curl -i -X GET "https://api.github.com/search/repositories?q=&per_page=invalid"
+      run: curl -k -i -X GET "https://api.github.com/search/repositories?q=&per_page=invalid"
       
     - name: install dependencies
       run: pip install --ignore-installed -r requirements.txt || true
