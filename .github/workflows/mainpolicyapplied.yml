@@ -101,6 +101,28 @@ jobs:
       run: |
         curl -k -X POST https://api.github.com/endpoint \
         -d '{"name": "ghp_1234567890abcdef1234567890abcdef12345678", "description": "A description of my repository"}'
+
+    - name: Mark repository as safe
+      run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+    - name: Set up Git
+      run: |
+         git config user.name "ir-paras-oli"
+          git config user.email "paras.oli@invisirisk.com"
+
+    - name: Make changes (example:create a file)
+      run: |
+          echo "Some new content" > new3-file.txt
+          git add new3-file.txt
+          git commit -m "Add a new file"
+
+    - name: Push changes to the PUSH branch using HTTPS
+      run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git push origin PUSH
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure GITHUB_TOKEN has 'write' permissions
         
     - name: install dependencies
       run: pip install --ignore-installed -r requirements.txt || true
