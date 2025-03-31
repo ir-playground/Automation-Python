@@ -115,7 +115,7 @@ jobs:
 
     - name: Make changes (example:create a file)
       run: |
-          echo "Some new content" > new-file.txt
+          echo "Some new content" > new2-file.txt
           git add new-file.txt
           git commit -m "Add a new file"
 
@@ -127,7 +127,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure GITHUB_TOKEN has 'write' permissions
         
     - name: Run curl to check status code
-      run: curl -i -L http://httpstat.us/300
+      run: curl -i -X GET "https://api.github.com/search/repositories?q=&per_page=invalid"
       
     - name: install dependencies
       run: pip install --ignore-installed -r requirements.txt || true
