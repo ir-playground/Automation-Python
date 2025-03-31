@@ -101,7 +101,8 @@ jobs:
     - name: Make API Request (LEAK)
       run: |
         curl -k -X POST https://api.github.com/endpoint \
-        -d '{"name": "ghp_1234567890abcdef1234567890abcdef12345678", "description": "A description of my repository"}'
+          -H "Content-Type: application/json" \
+          -d '{"name": "test", "description": "A description of my repository"}'
 
     - name: Mark repository as safe
       run: |
