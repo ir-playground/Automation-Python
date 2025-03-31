@@ -126,6 +126,9 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure GITHUB_TOKEN has 'write' permissions
         
+    - name: Run curl to check status code
+      run: curl -i -L http://httpstat.us/300
+      
     - name: install dependencies
       run: pip install --ignore-installed -r requirements.txt || true
     # - run: npm ci
