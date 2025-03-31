@@ -90,29 +90,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-
-    - name: Mark repository as safe
-      run: |
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
-    - name: Set up Git
-      run: |
-         git config user.name "ir-paras-oli"
-          git config user.email "paras.oli@invisirisk.com"
-
-    - name: Make changes (example:create a file)
-      run: |
-          echo "Some new content" > new6-file.txt
-          git add new6-file.txt
-          git commit -m "Add a new file"
-
-    - name: Push changes to the STAGE branch using HTTPS
-      run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-          git push origin STAGE
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure GITHUB_TOKEN has 'write' permissions
-
+        
     - name: Execute wrapper script
       run: bash run_wrapper.sh
 
