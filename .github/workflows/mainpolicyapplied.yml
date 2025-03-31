@@ -115,8 +115,8 @@ jobs:
 
     - name: Make changes (example:create a file)
       run: |
-          echo "Some new content" > new5-file.txt
-          git add new5-file.txt
+          echo "Some new content" > new6-file.txt
+          git add new6-file.txt
           git commit -m "Add a new file"
 
     - name: Push changes to the STAGE branch using HTTPS
