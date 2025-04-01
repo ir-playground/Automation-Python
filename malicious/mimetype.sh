@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Fetch headers, follow redirects, and extract the MIME type (Content-Type)
-mime_type=$(curl -s -L -I -k "https://github.com/ir-paras-oli/simple-django-project/blob/master/index.html" | grep -i 'Content-Type' | awk '{print $2}')
+# Fetch headers, follow redirects, and extract the MIME type (Content-Type) from the raw GitHub URL
+mime_type=$(curl -s -L -I -k "https://raw.githubusercontent.com/ir-paras-oli/simple-django-project/master/index.html" | grep -i 'Content-Type' | awk '{print $2}')
 
-# Force MIME type to 'image/png' if it's not detected correctly
+# Force MIME type to 'text/html' if it's not detected correctly
 if [[ "$mime_type" != "text/html" ]]; then
     mime_type="text/html"
 fi
