@@ -1,6 +1,7 @@
 name: Build Python Package (Policy Applied)
 
 on:
+  workflow_dispatch:
   push:
     branches: [ STAGE ]
   pull_request:
