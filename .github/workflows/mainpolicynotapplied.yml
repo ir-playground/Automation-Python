@@ -22,7 +22,7 @@ jobs:
     steps:
     - name: Prepare PSE credentials
       id: pse-prepare
-      uses: invisirisk/pse-action@v1.0.12
+      uses: invisirisk/pse-action@v1.0.13
       with:
         api_url: 'https://app.invisirisk.com'
         app_token: ${{ secrets.VB_API_KEY }}
@@ -55,7 +55,7 @@ jobs:
         apt-get install -y curl
         
     - name: Configure PSE Interception
-      uses: invisirisk/pse-action@v1.0.12
+      uses: invisirisk/pse-action@v1.0.13
       with:
         mode: "intercept"
         proxy_hostname: 'pse-proxy'
@@ -69,7 +69,7 @@ jobs:
       run: pip install --ignore-installed -r requirements.txt || true
       
     - name: Cleanup PSE
-      uses: invisirisk/pse-action@v1.0.12
+      uses: invisirisk/pse-action@v1.0.13
       if: always()
       with:
         cleanup: 'true'
