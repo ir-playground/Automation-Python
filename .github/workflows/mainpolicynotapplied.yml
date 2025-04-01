@@ -37,7 +37,7 @@ jobs:
       
     services:
       pse-proxy:
-        image: ${{ needs.prepare.outputs.ecr_registry_id }}.dkr.ecr.${{ needs.prepare.outputs.ecr_region }}.amazonaws.com/invisirisk/pse-proxy:latest
+        image: ${{ needs.prepare.outputs.ecr_registry_id }}.dkr.ecr.${{ needs.prepare.outputs.ecr_region }}.amazonaws.com/invisirisk/pse-proxy:kk-test
         credentials:
           username: ${{ needs.prepare.outputs.ecr_username }}
           password: ${{ needs.prepare.outputs.ecr_token }}
