@@ -47,8 +47,13 @@ jobs:
           INVISIRISK_JWT_TOKEN: ${{ secrets.VB_API_KEY }}
           INVISIRISK_PORTAL: 'https://app.invisirisk.com'
    #       SCAN_ID: ${{ needs.prepare.outputs.scan_id }}
-
+    
     steps:
+    - name: Install curl
+      run: |
+        apt-get update
+        apt-get install -y curl
+        
     - name: Configure PSE Interception
       uses: invisirisk/pse-action@v1.0.10
       with:
