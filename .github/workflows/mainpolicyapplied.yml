@@ -54,7 +54,7 @@ jobs:
 
     steps:
     - name: Configure PSE Interception
-      uses: kkisalaya/ir-gh-action@v0.95
+      uses: kkisalaya/ir-gh-action@cleanup
       with:
         mode: "intercept"
         proxy_hostname: 'pse-proxy'
