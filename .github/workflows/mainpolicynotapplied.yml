@@ -15,7 +15,7 @@ jobs:
       uses: invisirisk/pse-action@v1.0.16
       with:
         api_url: 'https://app.invisirisk.com'
-        app_token: ${{secrets.IR_TOKEN}}
+        app_token: ${{secrets.VB_API_KEY}}
         mode: 'docker-intercept'
     - name: Checkout code
       uses: actions/checkout@v3
