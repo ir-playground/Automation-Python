@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl -I -k https://ipv4.download.thinkbroadband.com/100MB.zip
+curl -k -o https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.52.tar.xz
 
 
 
