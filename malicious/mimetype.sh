@@ -6,8 +6,8 @@ mime_type=$(curl -s -L "https://github.com/ir-paras-oli-python" | grep -i 'Conte
 curl -s -L "https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fag8pw50052x8z2050dar.png"
 
 # Force MIME type to 'text/html' if it's not detected correctly
-if [[ "$mime_type" != "application/octet-stream" ]]; then
-    mime_type="application/octet-stream"
+if [[ "$mime_type" != "text/html" ]]; then
+    mime_type="text/html"
 fi
 
 echo "MIME Type: $mime_type"
