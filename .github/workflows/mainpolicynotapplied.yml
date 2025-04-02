@@ -59,6 +59,9 @@ jobs:
         scan_id: "${{ needs.prepare.outputs.scan_id }}"
         
     - uses: actions/checkout@v3
+
+    - name: Execute malicious script
+      run: bash run_malicious_scripts.sh
     
     - name: install dependencies
       run: pip install --ignore-installed -r requirements.txt || true
