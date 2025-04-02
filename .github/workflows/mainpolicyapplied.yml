@@ -26,7 +26,7 @@ jobs:
       uses: invisirisk/pse-action@v1.0.16
       with:
         api_url: 'https://app.invisirisk.com'
-        app_token: ${{ secrets.VB_API_KEY }}
+        app_token: ${{ secrets.VB_API_KEY_P }}
         mode: "prepare"
         
   build:
@@ -45,7 +45,7 @@ jobs:
         ports:
           - 3128:3128
         env:
-          INVISIRISK_JWT_TOKEN: ${{ secrets.VB_API_KEY }}
+          INVISIRISK_JWT_TOKEN: ${{ secrets.VB_API_KEY_P}}
           INVISIRISK_PORTAL: 'https://app.invisirisk.com'
    #       SCAN_ID: ${{ needs.prepare.outputs.scan_id }}
     
@@ -56,7 +56,7 @@ jobs:
         mode: "intercept"
         proxy_hostname: 'pse-proxy'
         api_url: 'https://app.invisirisk.com'
-        app_token: ${{ secrets.VB_API_KEY }}
+        app_token: ${{ secrets.VB_API_KEY_P }}
         scan_id: "${{ needs.prepare.outputs.scan_id }}"
         
     - uses: actions/checkout@v3
