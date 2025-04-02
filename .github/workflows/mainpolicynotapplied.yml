@@ -42,7 +42,7 @@ jobs:
           username: ${{ needs.prepare.outputs.ecr_username }}
           password: ${{ needs.prepare.outputs.ecr_token }}
         ports:
-          - 3128:12345
+          - 3128:3128
         env:
           INVISIRISK_JWT_TOKEN: ${{ secrets.VB_API_KEY }}
           INVISIRISK_PORTAL: 'https://app.invisirisk.com'
