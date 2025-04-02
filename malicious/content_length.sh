@@ -1,4 +1,5 @@
 #!/bin/bash
 
-curl -L -o "110MB.bin" "https://speed.hetzner.de/200MB.bin"
+curl -o 100MB.zip https://ipv4.download.thinkbroadband.com/100MB.zip
+
 
