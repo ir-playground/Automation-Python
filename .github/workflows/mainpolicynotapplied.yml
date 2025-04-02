@@ -1,80 +1,34 @@
-name: Build Python Package (policy not applied)
+name: Policy not applied
 
 on:
-  workflow_dispatch:
   push:
-    branches: [STAGE]
+    branches: [ STAGE ]
   pull_request:
-    branches: [STAGE]
+    branches: [ STAGE ]
 
 jobs:
-  prepare:
-    name: Prepare PSE Environment
-    runs-on: ubuntu-latest
-    outputs:
-      scan_id: ${{ steps.pse-prepare.outputs.scan_id }}
-      ecr_username: ${{ steps.pse-prepare.outputs.ecr_username }}
-      ecr_token: ${{ steps.pse-prepare.outputs.ecr_token }}
-      ecr_region: ${{ steps.pse-prepare.outputs.ecr_region }}
-      ecr_registry_id: ${{ steps.pse-prepare.outputs.ecr_registry_id }}
-      test_op: ${{ steps.pse-prepare.outputs.test_op }}
-
-    steps:
-      - name: Prepare PSE credentials
-        id: pse-prepare
-        uses: kkisalaya/ir-gh-action@cleanup
-        with:
-          api_url: 'https://app.invisirisk.com'
-          app_token: ${{ secrets.VB_API_KEY }}
-          mode: "prepare"
-
   build:
-    needs: prepare
     runs-on: ubuntu-latest
-    container:
-      image: node:18-bullseye
-      options: --privileged
-
-    services:
-      pse-proxy:
-        image: ${{ needs.prepare.outputs.ecr_registry_id }}.dkr.ecr.${{ needs.prepare.outputs.ecr_region }}.amazonaws.com/invisirisk/pse-proxy:latest
-        credentials:
-          username: ${{ needs.prepare.outputs.ecr_username }}
-          password: ${{ needs.prepare.outputs.ecr_token }}
-        ports:
-          - 12345:12345
-        env:
-          INVISIRISK_JWT_TOKEN: ${{ secrets.VB_API_KEY }}
-          INVISIRISK_PORTAL: 'https://app.invisirisk.com'
-    #      SCAN_ID: ${{ needs.prepare.outputs.scan_id }}
 
     steps:
-      - name: Configure PSE Interception
-        uses: kkisalaya/ir-gh-action@v0.95
-        with:
-          mode: "intercept"
-          proxy_hostname: 'pse-proxy'
-          api_url: 'https://app.invisirisk.com'
-          app_token: ${{ secrets.VB_API_KEY }}
-          scan_id: "${{ needs.prepare.outputs.scan_id }}"
+    - name: Setup PSE
+      uses: invisirisk/pse-action@v1.0.16
+      with:
+        api_url: 'https://app.invisirisk.com'
+        app_token: ${{secrets.IR_TOKEN}}
+        mode: 'docker-intercept'
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Use Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
 
-      - uses: actions/checkout@v3
+    - name: Install dependencies
+      run: pip install -r requirements.txt
 
-      - name: Execute malicious script
-        run: bash run_malicious_scripts.sh
-
-      - name: Install dependencies
-        run: npm install --no-package-lock
-
-      - name: Run build
-        run: npm run build --if-present
-
-      - name: Run tests
-        run: npm test || true
-
-      - name: Cleanup PSE
-        uses: kkisalaya/ir-gh-action@cleanup
-        if: always()
-        with:
-          cleanup: 'true'
-          scan_id: "${{ needs.prepare.outputs.scan_id }}"
+    - name: Cleanup PSE
+      if: always()
+      uses: invisirisk/pse-action@v1.0.16
+      with:
+        cleanup: 'true'
