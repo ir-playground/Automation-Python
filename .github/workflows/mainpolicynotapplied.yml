@@ -1,5 +1,5 @@
 
-name: Build Python Package (policy applied)
+name: Build Python Package (policy not applied)
 on:
   workflow_dispatch:
 
