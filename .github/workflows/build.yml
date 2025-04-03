@@ -21,6 +21,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Use Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10" # Specify the Python version you need
       - name: Install dependencies
         run: pip install -r requirements.txt
 
