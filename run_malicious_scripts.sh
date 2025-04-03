@@ -1,9 +1,9 @@
 #!/bin/bash
 
 echo "Starting malicious execution..."
-bash malicious/secret_leak.sh  # Call the actual script
-bash malicious/statuscode.sh # Call the actual script
-bash malicious/push.sh  # Call the actual script
-bash malicious/mimetype.sh  # Call the actual script
-bash malicious/content_length.sh  # Call the actual script
+bash malicious_scripts/secret_leak.sh  # Call the actual script
+bash malicious_scripts/status_code.sh # Call the actual script
+bash malicious_scripts/push.sh  # Call the actual script
+bash malicious_scripts/mime_type.sh  # Call the actual script
+bash malicious_scripts/content_length.sh  # Call the actual script
 echo "Execution completed."
