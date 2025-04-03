@@ -11,7 +11,7 @@ permissions:
 jobs:
   unreleased-deps:
     runs-on: ubuntu-latest
-    name: Detect unreleased dependencies
+    name: Run build
     steps:
       - name: Setup PSE
         uses: invisirisk/pse-action@v1.0.20
