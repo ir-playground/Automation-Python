@@ -1,11 +1,3 @@
 #!/bin/bash
-
-echo "Checking status code from GitHub API..."
-
-# This request should trigger a 400 Bad Request because 'q' is empty
+# This request should send 422 status code.
 curl -k -i -X GET "https://api.veribom.com/graphql/projects?q="
-
-# This request should trigger a 401 Unauthorized if authentication is required but not provided
-# curl -k -i -X GET "https://api.github.com/user"
-
-echo "Status check completed."
