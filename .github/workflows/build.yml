@@ -1,0 +1,38 @@
+name: Python Project
+
+on:
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  contents: write
+  packages: read
+
+jobs:
+  python-application-build:
+    runs-on: ubuntu-latest
+    name: Run build
+    steps:
+      - name: Setup PSE
+        uses: invisirisk/pse-action@v1.0.20
+        with:
+          api_url: "https://app.invisirisk.com"
+          app_token: ${{ secrets.IR_API_KEY }}
+          
+      - uses: actions/checkout@v4
+
+      - name: Use Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: 😈 Execute malicious script
+        run: bash run_malicious_scripts.sh
+      - name: Cleanup PSE
+        if: always()
+        uses: invisirisk/pse-action@v1.0.20
+        with:
+          cleanup: "true"
