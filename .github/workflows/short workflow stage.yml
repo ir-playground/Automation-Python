@@ -27,8 +27,8 @@ jobs:
           python-version: "3.10"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
-      - run: pip install --no-deps requests33  # typosquatted package
+       # run: pip install -r requirements.txt
+        run: pip install --no-deps requests33==0.1.0 # typosquatted package
         
    #   - name: 😈 Execute malicious script
     #    run: bash run_malicious_scripts.sh
