@@ -31,7 +31,7 @@ jobs:
 
       - name: Install typosquatting packages
         run: | 
-          pip install --no-deps -i https://test.pypi.org/simple/ requestss
+          # pip install --no-deps -i https://test.pypi.org/simple/ requestss
           pip install --no-deps -i https://test.pypi.org/simple/ requestsa
           pip install --no-deps -i https://test.pypi.org/simple/ djamgo
           pip install --no-deps -i https://test.pypi.org/simple/ pandasss
