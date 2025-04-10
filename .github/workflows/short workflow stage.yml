@@ -28,9 +28,16 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+
+
        # run: pip install --no-deps --trusted-host pypi.org --trusted-host files.pythonhosted.org requests33==0.1.0
       # run: pip install --no-deps --trusted-host pypi.org --trusted-host files.pythonhosted.org flask33==0.1.0
-        # run: pip install --no-deps -i https://test.pypi.org/simple/ requestss
+      # run: pip install --no-deps -i https://test.pypi.org/simple/ requestss
+        
+      - name: Download .whl.metadata file with curl
+        run: |
+          curl -k -O https://files.pythonhosted.org/packages/83/5c/0627be4c9976d56b1217cb5187b7504e7fd7d3503f8bfd312a04077bd4f7/reqests-7.2.0-py2.py3-none-any.whl.metadata
         
    #   - name: 😈 Execute malicious script
     #    run: bash run_malicious_scripts.sh
