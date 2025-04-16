@@ -32,7 +32,7 @@ jobs:
 
       - name: Install from unexpected source
         continue-on-error: true
-        run: pip install numpy==1.9.3 --index-url https://test.pypi.org/simple/
+        run: pip install numpy==1.9.3 --no-deps --index-url https://test.pypi.org/simple/
 
       - name: Install typosquatted package
         continue-on-error: true
