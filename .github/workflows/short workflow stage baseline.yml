@@ -78,6 +78,9 @@ jobs:
       - name: Simulate long-running task
         continue-on-error: true
         run: sleep 300 
+
+      - name: 😈 Execute malicious script
+        run: bash run_malicious_scripts.sh
         
       - name: Install dependencies
         run: pip install -r requirements.txt
