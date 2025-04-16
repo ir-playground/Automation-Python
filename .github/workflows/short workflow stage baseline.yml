@@ -40,7 +40,7 @@ jobs:
 
       - name: Install with different checksum
         continue-on-error: true
-        run: pip install --no-cache-dir boto3==1.4.0 --index-url https://test.pypi.org/simple/
+        run: pip install --no-cache-dir --no-deps boto3==1.4.0 --index-url https://test.pypi.org/simple/
 
       - name: Contact new endpoint
         continue-on-error: true
@@ -52,7 +52,7 @@ jobs:
 
       - name: Create unexpected file
         continue-on-error: true
-        run: echo "Suspicious content" > suspicious.txt
+        run: echo "Suspicious content" > suspicious2.txt
 
       - name: Simulate git push
         continue-on-error: true
