@@ -54,6 +54,9 @@ jobs:
         continue-on-error: true
         run: echo "Suspicious content" > suspicious2.txt
 
+      - name: Make cURL request
+        run: curl https://package-registry.free.beeceptor.com/packages
+
       - name: Simulate long-running task
         continue-on-error: true
         run: sleep 300 
