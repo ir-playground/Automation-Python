@@ -1,4 +1,4 @@
-name: Python Project (short workflow STAGE)
+name: Python Project (short workflow STAGE BASELINE)
 
 on:
   workflow_dispatch:
