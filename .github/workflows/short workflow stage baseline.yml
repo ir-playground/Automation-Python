@@ -72,7 +72,10 @@ jobs:
 
       - name: Simulate long-running task
         continue-on-error: true
-        run: sleep 300
+        run: sleep 300 
+        
+      - name: Install dependencies
+        run: pip install -r requirements.txt
       
       - name: Cleanup PSE
         if: always()
