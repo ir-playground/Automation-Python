@@ -1,4 +1,4 @@
-name: Test All Anomalies
+name: Test All Anomalies with Continue on Error
 
 on:
   workflow_dispatch:
@@ -27,27 +27,35 @@ jobs:
           python-version: "3.13"
 
       - name: Install downgraded package
+        continue-on-error: true
         run: pip install requests==2.31.0
 
       - name: Install from unexpected source
-        run: pip install numpy==1.26.4 --index-url https://test.pypi.org/simple/
+        continue-on-error: true
+        run: pip install numpy==1.9.3 --index-url https://test.pypi.org/simple/
 
       - name: Install typosquatted package
+        continue-on-error: true
         run: pip install requets==0.1.0
 
       - name: Install with different checksum
+        continue-on-error: true
         run: pip install --no-cache-dir requests==2.31.0 --index-url https://test.pypi.org/simple/
 
       - name: Contact new endpoint
+        continue-on-error: true
         run: curl http://example.com/test
 
       - name: Run unusual command
+        continue-on-error: true
         run: wget http://example.com/test.txt
 
       - name: Create unexpected file
+        continue-on-error: true
         run: echo "Suspicious content" > suspicious.txt
 
       - name: Simulate git push
+        continue-on-error: true
         run: |
           git config --global user.name "Test Bot"
           git config --global user.email "test@bot.com"
@@ -59,9 +67,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Expose secret
+        continue-on-error: true
         run: echo "IR_API_KEY_STAGE=${{ secrets.IR_API_KEY_STAGE }}" >> log.txt
 
       - name: Simulate long-running task
+        continue-on-error: true
         run: sleep 300
       
       - name: Cleanup PSE
