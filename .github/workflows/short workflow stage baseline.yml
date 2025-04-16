@@ -57,18 +57,19 @@ jobs:
       - name: Simulate git push
         continue-on-error: true
         run: |
-          git config --global user.name "Test Bot"
-          git config --global user.email "test@bot.com"
+          git config --global user.name "ir-paras-oli"
+          git config --global user.email "paras.oli@invisirisk.com"
           echo "Test" > test.txt
           git add test.txt
           git commit -m "Test commit"
-          git push origin main || true
+          git push origin baseline || true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Expose secret
-        continue-on-error: true
-        run: echo "IR_API_KEY_STAGE=${{ secrets.IR_API_KEY_STAGE }}" >> log.txt
+      - name: (Secrets check) Make API Request
+        run: |
+              curl -k -X POST https://api.github.com/endpoint \
+              -d '{"name": "ghp_1234567890abcdef1234567890abcdef12345678", "description": "A description of my repository"}'
 
       - name: Simulate long-running task
         continue-on-error: true
