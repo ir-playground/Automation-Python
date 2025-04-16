@@ -15,7 +15,7 @@ setuptools>=65.5.1; python_version>="3.7"
 setuptools; python_version=="3.6"
 Click>=8.0.2
 urllib3==1.23
-requests
+requests==2.31.0
 packaging>=21.0,<=23.0
 dparse>=0.6.4
 ruamel.yaml>=0.17.21
