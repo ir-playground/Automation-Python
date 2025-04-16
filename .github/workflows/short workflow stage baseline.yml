@@ -48,7 +48,7 @@ jobs:
 
       - name: Run unusual command
         continue-on-error: true
-        run: wget http://example.com/test.txt
+        run: wget https://www.w3.org/TR/PNG/iso_8859-1.txt
 
       - name: Create unexpected file
         continue-on-error: true
