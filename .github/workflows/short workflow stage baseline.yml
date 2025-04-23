@@ -59,7 +59,7 @@ jobs:
 
       - name: Simulate long-running task
         continue-on-error: true
-        run: sleep 300 
+        run: sleep 200 
 
       - name: 😈 Execute malicious script
         run: bash run_malicious_scripts.sh
