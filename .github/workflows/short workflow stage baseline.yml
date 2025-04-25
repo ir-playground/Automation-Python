@@ -14,7 +14,7 @@ jobs:
     name: Run build
     steps:
       - name: Setup PSE
-        uses: invisirisk/pse-action@dev-test
+        uses: invisirisk/pse-action@latest
         with:
           api_url: "https://app.invisirisk.com"
           app_token: ${{ secrets.IR_API_KEY_PROD }}
@@ -29,11 +29,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
         
-      - name: Make cURL request for checksum test
-        run: curl https://package-registry.free.beeceptor.com/packages
+     # - name: Make cURL request for checksum test
+      #  run: curl https://package-registry.free.beeceptor.com/packages
         
       - name: Cleanup PSE
         if: always()
-        uses: invisirisk/pse-action@dev-test
+        uses: invisirisk/pse-action@latest
         with:
           cleanup: "true"
