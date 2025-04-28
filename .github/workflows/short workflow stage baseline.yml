@@ -17,7 +17,7 @@ jobs:
         uses: invisirisk/pse-action@dev-test
         with:
           api_url: "https://app.stage.invisirisk.com"
-          app_token: ${{ secrets.IR_API_KEY_STAGE }}
+          app_token: ${{ secrets.IR_API_KEY_STAGE_SECRETS }}
           
       - uses: actions/checkout@v4
 
@@ -26,8 +26,8 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      #- name: Install dependencies
+       # run: pip install -r requirements.txt
         
      # - name: Make cURL request for checksum test
       #  run: curl https://package-registry.free.beeceptor.com/packages
