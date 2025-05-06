@@ -1,0 +1,66 @@
+name: Python Project (short workflow STAGE SLOP)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  contents: write
+  packages: read
+
+jobs:
+  python-application-build:
+    runs-on: ubuntu-latest
+    name: Run build
+    steps:
+      - name: Setup PSE
+        uses: invisirisk/pse-action@dev-test
+        with:
+          api_url: "https://app.stage.invisirisk.com"
+          app_token: ${{ secrets.IR_API_KEY_STAGE }}
+          
+      - uses: actions/checkout@v4
+
+      - name: Use Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.13"
+
+     # - name: Install dependencies
+        # run: pip install -r requirements.txt
+      #  run: pip install -r requirements.txt --legacy-deps
+        # continue-on-error: true
+
+      - name: Install pipdeptree (for conflict check)
+        run: pip install pipdeptree
+
+      - name: Install requirements one-by-one
+        run: |
+          echo "Starting package installs..."
+          FAILURES=()
+          while IFS= read -r pkg || [[ -n "$pkg" ]]; do
+            echo "Installing: $pkg"
+            pip install "$pkg" || FAILURES+=("$pkg")
+          done < requirements.txt
+
+          if [ ${#FAILURES[@]} -ne 0 ]; then
+            echo "Some packages failed to install:"
+            for f in "${FAILURES[@]}"; do echo " - $f"; done
+          else
+            echo "All packages installed successfully."
+          fi
+
+      - name: Check for dependency conflicts
+        run: |
+          echo "Checking for dependency conflicts..."
+          pip check || echo "Conflicts found"
+          pipdeptree --warn silence
+        
+     # - name: Make cURL request for checksum test
+      #  run: curl https://package-registry.free.beeceptor.com/packages
+        
+      - name: Cleanup PSE
+        if: always()
+        uses: invisirisk/pse-action@dev-test
+        with:
+          cleanup: "true"
