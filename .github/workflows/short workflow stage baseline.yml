@@ -27,7 +27,8 @@ jobs:
           python-version: "3.13"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        # run: pip install -r requirements.txt
+        run: pip install -r requirements.txt --legacy-deps
         # continue-on-error: true
         
      # - name: Make cURL request for checksum test
