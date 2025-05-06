@@ -26,29 +26,13 @@ jobs:
         with:
           python-version: "3.13"
 
-     # - name: Install dependencies
-        # run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
       #  run: pip install -r requirements.txt --legacy-deps
-        # continue-on-error: true
+        continue-on-error: true
 
       - name: Install pipdeptree (for conflict check)
         run: pip install pipdeptree
-
-      - name: Install requirements one-by-one
-        run: |
-          echo "Starting package installs..."
-          FAILURES=()
-          while IFS= read -r pkg || [[ -n "$pkg" ]]; do
-            echo "Installing: $pkg"
-            pip install "$pkg" || FAILURES+=("$pkg")
-          done < requirements.txt
-
-          if [ ${#FAILURES[@]} -ne 0 ]; then
-            echo "Some packages failed to install:"
-            for f in "${FAILURES[@]}"; do echo " - $f"; done
-          else
-            echo "All packages installed successfully."
-          fi
 
       - name: Check for dependency conflicts
         run: |
