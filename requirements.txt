@@ -1,3 +1,4 @@
+loader-utils # a Supposed AI hallicunated package that does not exist in PYPI registry
 flake8
 pytest==7.4.4
 mock
