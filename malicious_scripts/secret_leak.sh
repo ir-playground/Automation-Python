@@ -6,7 +6,6 @@ curl "https://api.veribom.com/graphql?GH=ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXX
 curl "https://api.veribom.com/graphql?GH=ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 curl -X POST https://api.veribom.com/graphql \
-  -H "Content-Type: application/json" \
-  -d '{
-    "GH": "ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"
-  }'
+   -H "Content-Type: application/json" \
+   -d '{
+     "GH": "ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"

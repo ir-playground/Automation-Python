@@ -66,9 +66,4 @@ jobs:
         
       - name: Install dependencies
         run: pip install -r requirements.txt
-      
-      - name: Cleanup PSE
-        if: always()
-        uses: invisirisk/pse-action@dev-test
-        with:
-          cleanup: "true"
+
