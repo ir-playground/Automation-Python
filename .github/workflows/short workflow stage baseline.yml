@@ -1,4 +1,4 @@
-name: Python Project (short workflow STAGE BASELINE)
+name: Python Project OSV (Baseline)
 
 on:
   workflow_dispatch:
@@ -27,10 +27,25 @@ jobs:
           python-version: "3.13"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
-        
-     # - name: Make cURL request for checksum test
-      #  run: curl https://package-registry.free.beeceptor.com/packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pipdeptree pip-licenses
+
+      - name: Export Dependency Tree to JSON
+        run: pipdeptree --json --warn silence > dependencies.json
+
+      - name: Export License Info
+        run: pip-licenses --format=json > licenses.json
+
+      - name: Convert JSON to CSV
+        run: python .github/scripts/deps_to_csv.py
+
+      - name: Upload CSV Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-dependencies-csv
+          path: dependencies.csv
         
       - name: Cleanup PSE
         if: always()
