@@ -33,9 +33,10 @@ jobs:
         run: |
           curl -X POST https://api.veribom.com/graphql \
             -H "Content-Type: application/json" \
-            -d '{"invalid": }' \
+            -d '{"query": "INVALID QUERY"}' \
             -w "\nHTTP Status: %{http_code}\n" \
             -o /dev/null -s
+
         
       - name: Cleanup PSE
         if: always()
