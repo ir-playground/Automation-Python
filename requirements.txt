@@ -14,7 +14,7 @@ pytest-cov==4.1.0
 setuptools>=65.5.1; python_version>="3.7"
 setuptools; python_version=="3.6"
 Click>=8.0.2
-urllib3==1.23
+# urllib3==1.23 # removed because missing CWE for its CVE (CVE-2019-11324 CVE-2021-33503 CVE-2018-25091 CVE-2024-37891 CVE-2023-45803)
 requests
 packaging>=21.0,<=23.0
 dparse>=0.6.4
@@ -34,4 +34,4 @@ filelock~=3.16.1
 psutil~=6.1.0
 ipaddress
 cryptography
-rsa==3.3
+# rsa==3.3 # removed because missing CWE for its CVE (CVE-2020-13757 CVE-2020-25658)
