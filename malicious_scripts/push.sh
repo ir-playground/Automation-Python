@@ -10,11 +10,11 @@ git config user.email "paras.oli@invisirisk.com"
 
 echo "Creating a folder and adding a file..."
 mkdir -p new_folder
-echo "Some new content" > Pushed_file/new6-file.txt
+echo "Some new content" > Pushed_file/new7-file.txt
 
-git add new_folder/new6-file.txt
+git add new_folder/new7-file.txt
 git commit -m "Add a new file inside new_folder"
 
 echo "Pushing changes to the STAGE branch..."
 git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-git push origin STAGE
+git push origin PROD_DSP
