@@ -35,3 +35,5 @@ psutil~=6.1.0
 ipaddress
 cryptography
 rsa==3.3
+mage-ai==0.8.55 # in critical vulnerablity dataset
+democritus_dates==0.1.0 # in critical vulnerablity dataset
