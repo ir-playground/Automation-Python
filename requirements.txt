@@ -33,5 +33,7 @@ typing-extensions>=4.7.1
 filelock~=3.16.1
 psutil~=6.1.0
 ipaddress
-cryptography
+cryptography==3.1.1
 rsa==3.3
+pillow==7.2.0
+pillow==8.3.2
