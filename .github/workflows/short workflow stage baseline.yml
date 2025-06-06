@@ -16,7 +16,7 @@ jobs:
       - name: Setup PSE
         uses: ir-bhuwan-panta/pse-action@bh-test
         with:
-          api_url: "https://app.invisirisk.com"
+          api_url: "https://app.dev.invisirisk.com"
           app_token: ${{ secrets.IR_API_KEY_CHART }}
           
       - uses: actions/checkout@v4
