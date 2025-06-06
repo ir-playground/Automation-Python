@@ -92,7 +92,3 @@ jobs:
         uses: ir-bhuwan-panta/pse-action@bh-test
         with:
           get_jobs: "true"
-          scan_id: ${{ steps.pse-setup.outputs.scan_id }}
-
-
-
