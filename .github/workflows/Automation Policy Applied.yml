@@ -78,6 +78,9 @@ jobs:
 
       - name: Mime Type Policy
         run: curl -s -L "https://tinyurl.com/invisirisk"
+
+      - name: Content length download
+        run: curl  -o 1GB.bin "https://nbg1-speed.hetzner.com/1GB.bin"
         
       - name: Install dependencies
         run: pip install -r requirements.txt
