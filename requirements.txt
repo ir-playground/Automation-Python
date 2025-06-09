@@ -33,6 +33,6 @@ typing-extensions>=4.7.1
 filelock~=3.16.1
 psutil~=6.1.0
 ipaddress
-cryptography
+cryptography==3.1.1
 rsa==3.3 #its CVE does not have CWE
 rope # in critical vulnerablity dataset
