@@ -17,8 +17,8 @@ jobs:
         uses: ir-bhuwan-panta/pse-action@test
        # uses: invisirisk/pse-action@latest
         with:
-          api_url: "https://app.stage.invisirisk.com"
-          app_token: ${{ secrets.IR_API_KEY_CHART_STAGE }}
+          api_url: "https://app.dev.invisirisk.com"
+          app_token: ${{ secrets.IR_API_KEY_CHART }}
           
       - uses: actions/checkout@v4
 
