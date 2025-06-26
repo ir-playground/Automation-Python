@@ -42,9 +42,9 @@ jobs:
       #   continue-on-error: true
       #   run: pip install --no-cache-dir --no-deps boto3==1.4.0 --index-url https://test.pypi.org/simple/
 
-      # - name: Contact new endpoint
-      #   continue-on-error: true
-      #   run: curl http://example.com/test
+      - name: Contact new endpoint
+        continue-on-error: true
+        run: curl https://malicious.com/
 
       # - name: Run unusual command
       #   continue-on-error: true
