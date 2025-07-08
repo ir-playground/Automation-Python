@@ -1,1 +1,38 @@
-rsa==3.3 # removed because its CVE does not have CWE
+# Data Science & AI/ML - Focus on efficiency and new paradigms
+polars==0.20.21 # Fast DataFrame library, a strong Pandas alternative
+duckdb==0.10.3 # In-process SQL OLAP database, great for local data analysis
+pyarrow==16.1.0 # High-performance columnar data format, crucial for data pipelines
+langchain==0.2.7 # Framework for developing applications with Large Language Models (LLMs)
+ollama==0.2.1 # Client for running LLMs locally
+chromadb==0.5.3 # Open-source embedding database for AI applications
+sentence-transformers==3.0.0 # Easy-to-use library for state-of-the-art sentence embeddings
+fastembed==0.2.8 # Fast and efficient embedding generation
+optuna==3.6.1 # Hyperparameter optimization framework
+jax==0.4.29 # High-performance numerical computing for ML, from Google
+flax==0.8.4 # Neural network library for JAX
+
+# Web Development & API - Modern and high-performance
+fastapi==0.111.0 # Modern, fast (high-performance) web framework
+uvicorn==0.30.1 # ASGI server for FastAPI
+httpx==0.27.0 # Next-generation HTTP client
+sqlmodel==0.0.19 # SQL databases with Pydantic models, built on SQLAlchemy and Pydantic
+litestar==2.8.1 # Modern, async-first web framework with a focus on type safety
+typer==0.12.3 # Build great CLIs with type hints
+strawberry-graphql==0.222.0 # Code-first Python GraphQL library
+
+# Developer Experience & Utilities - Tools for modern workflows
+ruff==0.4.8 # Extremely fast Python linter and formatter (Rust-based)
+hatch==1.12.0 # Modern, extensible Python project manager
+rich==13.7.1 # Beautiful terminal rendering
+textual==0.65.1 # Framework for building Text User Interfaces (TUIs)
+loguru==0.7.2 # Delightful logging library
+pydantic==2.7.2 # Data validation and settings management using Python type hints
+tomli==2.0.1 # TOML parser (often used for configuration, built-in in Python 3.11+)
+uv==0.2.11 # Extremely fast Python package installer and resolver (Rust-based)
+
+# Emerging / Specific Use Cases
+weaviate-client==4.6.0 # Client for Weaviate vector database
+qdrant-client==1.9.0 # Client for Qdrant vector database
+dagster==1.8.3 # Data orchestration platform
+prefect==2.20.4 # Workflow orchestration and automation
+modal==0.63.19 # Cloud platform for running Python code without managing infra
