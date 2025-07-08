@@ -5,7 +5,6 @@ pyarrow==16.1.0 # High-performance columnar data format, crucial for data pipeli
 langchain==0.2.7 # Framework for developing applications with Large Language Models (LLMs)
 ollama==0.2.1 # Client for running LLMs locally
 chromadb==0.5.3 # Open-source embedding database for AI applications
-fastembed==0.2.8 # Fast and efficient embedding generation
 optuna==3.6.1 # Hyperparameter optimization framework
 jax==0.4.29 # High-performance numerical computing for ML, from Google
 flax==0.8.4 # Neural network library for JAX
