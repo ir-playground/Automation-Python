@@ -1,5 +1,4 @@
-name: Test All Anomalies with Continue on Error
-
+name: Python application
 on:
   workflow_dispatch:
 
@@ -11,7 +10,7 @@ permissions:
 jobs:
   python-application-build:
     runs-on: ubuntu-latest
-    name: Run build with anomalies
+    name: Run build
     steps:
       - name: Setup PSE
         uses: invisirisk/pse-action@latest
