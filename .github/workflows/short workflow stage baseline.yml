@@ -13,7 +13,7 @@ jobs:
     name: Run build
     steps:
       - name: Setup PSE
-        uses: invisirisk/pse-action@latest
+        uses: invisirisk/pse-action@dev-test
         with:
           api_url: "https://app.stage.invisirisk.com"
           app_token: ${{ secrets.IR_API_KEY_NA_STAGE }}
@@ -82,7 +82,7 @@ jobs:
 
       - name: Cleanup PSE
         if: always()
-        uses: invisirisk/pse-action@latest
+        uses: invisirisk/pse-action@dev-test
         with:
           cleanup: "true"
 
@@ -93,7 +93,7 @@ jobs:
    if: always()
    steps:
    - name: Gather Status
-     uses: invisirisk/pse-action@latest
+     uses: invisirisk/pse-action@dev-test
      with:
       api_url: "https://app.stage.invisirisk.com"
       app_token: ${{ secrets.IR_API_KEY_NA_STAGE }}
