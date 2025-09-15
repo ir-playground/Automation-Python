@@ -1,4 +1,4 @@
-name: Automation Policy Applied
+name: Automation Policy Applied (STAGE)
 
 on:
   workflow_dispatch:
