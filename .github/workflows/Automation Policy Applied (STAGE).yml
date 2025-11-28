@@ -61,6 +61,10 @@ jobs:
       #   continue-on-error: true
       #   run: sleep 200 
 
+      - name: Dummy PUT request (Unauthorized PUT Action)
+        run: |
+          curl -X PUT "https://httpbin.org/put"
+
       - name: 😈 Execute malicious script
         run: bash run_malicious_scripts.sh
 
