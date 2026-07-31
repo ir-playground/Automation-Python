@@ -16,10 +16,10 @@ jobs:
       - name: Setup PSE
         uses: invisirisk/pse-action@latest
         with:
-          #api_url: "https://app.stage.invisirisk.com"
+          api_url: "https://app.stage.invisirisk.com"
           #app_token: ${{ secrets.IR_API_KEY_STAGE_POLICY }}
-          api_url: "https://app.dev.invisirisk.com"
-          app_token: LWpC1YSX9KuWP2eerYNo34vFnmWwL5Kj02GASZ8GED8ybf1h8TtvdN9UF7jPec2wAcw1ayxbBD64dERpY-KjlA
+          #api_url: "https://app.dev.invisirisk.com"
+          app_token: Ae9vCt-m_5GQLXutmTy5PKtXQAYKHSiwh-wbSHh-p2bExRKcvGwnmIurHTvuVSCRnFfAxn0lAMlGBLht0GzfeA
           
       - uses: actions/checkout@v4
 
