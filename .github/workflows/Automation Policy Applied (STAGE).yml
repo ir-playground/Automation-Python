@@ -19,7 +19,7 @@ jobs:
           api_url: "https://app.stage.invisirisk.com"
           #app_token: ${{ secrets.IR_API_KEY_STAGE_POLICY }}
           #api_url: "https://app.dev.invisirisk.com"
-          app_token: Ae9vCt-m_5GQLXutmTy5PKtXQAYKHSiwh-wbSHh-p2bExRKcvGwnmIurHTvuVSCRnFfAxn0lAMlGBLht0GzfeA
+          app_token: c0OVsCdXhDUe9o4i2EKWMrmobT7kYmr5RQBiLmUaw8wOyUa6i9WzHRUqKNxDStTfsNumD1rLOWG71ut5LDH0wQ
           
       - uses: actions/checkout@v4
 
